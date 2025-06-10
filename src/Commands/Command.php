@@ -5,6 +5,7 @@ namespace Laravel\VaporCli\Commands;
 use DateTime;
 use Laravel\VaporCli\ConsoleVaporClient;
 use Laravel\VaporCli\Helpers;
+use Laravel\VaporCli\Path;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -67,9 +68,21 @@ class Command extends SymfonyCommand
         Helpers::app()->instance('input', $this->input = $input);
         Helpers::app()->instance('output', $this->output = $output);
 
+        $this->configureManifestPath($input);
         $this->configureOutputStyles($output);
 
         return Helpers::app()->call([$this, 'handle']) ?: 0;
+    }
+
+    /**
+     * Configure the manifest location.
+     *
+     * @param  \Symfony\Component\Console\InputInterface  $input
+     * @return void
+     */
+    protected function configureManifestPath(InputInterface $input)
+    {
+        Helpers::app()->offsetSet('manifest', $input->getOption('manifest') ?? Path::defaultManifest());
     }
 
     /**

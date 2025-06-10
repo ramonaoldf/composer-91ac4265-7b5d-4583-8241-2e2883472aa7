@@ -9,8 +9,8 @@ use Dotenv\Repository\Adapter\EnvConstAdapter as V4orV5EnvConstAdapter;
 use Dotenv\Repository\Adapter\ServerConstAdapter as V4orV5ServerConstAdapter;
 use Dotenv\Repository\RepositoryBuilder;
 use Illuminate\Container\Container;
+use Laravel\VaporCli\Application;
 use Laravel\VaporCli\Commands;
-use Symfony\Component\Console\Application;
 
 /**
  * Require the autoloader.
@@ -66,12 +66,10 @@ if (file_exists(__DIR__.'/../../autoload.php')) {
  */
 Container::setInstance($container = new Container);
 
-require __DIR__.'/services.php';
-
 /**
  * Start the console application.
  */
-$app = new Application('Laravel Vapor', '1.20.3');
+$app = new Application('Laravel Vapor', '1.21.0');
 
 // Authentication...
 $app->add(new Commands\LoginCommand);
