@@ -69,7 +69,7 @@ Container::setInstance($container = new Container);
 /**
  * Start the console application.
  */
-$app = new Application('Laravel Vapor', '1.33.0');
+$app = new Application('Laravel Vapor', '1.34.0');
 
 // Authentication...
 $app->add(new Commands\LoginCommand);
@@ -156,6 +156,7 @@ $app->add(new Commands\InitCommand);
 $app->add(new Commands\UiCommand);
 $app->add(new Commands\ProjectDeleteCommand);
 $app->add(new Commands\ProjectDescribeCommand);
+$app->add(new Commands\ProjectListCommand);
 
 // Environments...
 $app->add(new Commands\EnvListCommand);
