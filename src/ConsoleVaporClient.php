@@ -318,7 +318,7 @@ class ConsoleVaporClient
      * @param  string  $name
      * @param  string  $region
      * @param  bool  $withInternetAccess
-     * @return array
+     * @return void
      */
     public function createNetwork($providerId, $name, $region, $withInternetAccess)
     {
@@ -776,6 +776,16 @@ class ConsoleVaporClient
     public function project($projectId)
     {
         return $this->request('get', '/api/projects/'.$projectId);
+    }
+
+    /**
+     * Get the projects that belong to the account.
+     *
+     * @return array
+     */
+    public function projects()
+    {
+        return $this->request('get', 'api/teams/'.Helpers::config('team').'/projects');
     }
 
     /**
