@@ -207,6 +207,17 @@ class ConsoleVaporClient
     {
         return $this->request('get', '/api/teams/'.Helpers::config('team').'/zones');
     }
+    
+    /**
+     * Get the zone with the given ID.
+     *
+     * @param  string  $zoneId
+     * @return array
+     */
+    public function zone($zoneId)
+    {
+        return $this->request('get', '/api/zones/'.$zoneId);
+    }
 
     /**
      * Create a new zone.
@@ -970,12 +981,16 @@ class ConsoleVaporClient
      * @param  string  $projectId
      * @param  string  $environment
      * @param  array  $manifest
+     * @param  string  $cliVersion
+     * @param  string  $coreVersion
      * @return void
      */
-    public function validateManifest($projectId, $environment, array $manifest)
+    public function validateManifest($projectId, $environment, array $manifest, $cliVersion = null, $coreVersion = null)
     {
         $this->requestWithErrorHandling('post', '/api/projects/'.$projectId.'/environments/'.$environment.'/linted-manifest', [
             'manifest' => $manifest,
+            'cli_version' => $cliVersion,
+            'core_version' => $coreVersion,
         ]);
     }
 
