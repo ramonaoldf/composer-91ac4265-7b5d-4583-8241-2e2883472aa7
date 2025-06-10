@@ -191,6 +191,20 @@ class Helpers
     }
 
     /**
+     * Ask the user to select from the given choices.
+     *
+     * @param  string  $question
+     * @param  mixed  $default
+     * @return mixed
+     */
+    public static function menu($title, $choices)
+    {
+        $style = new SymfonyStyle(static::app('input'), static::app('output'));
+
+        return $style->choice($title, $choices);
+    }
+
+    /**
      * Ask the user a secret question.
      *
      * @param  string  $question

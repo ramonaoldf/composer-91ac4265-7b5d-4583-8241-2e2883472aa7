@@ -6,7 +6,6 @@ use DateTime;
 use Laravel\VaporCli\Helpers;
 use Laravel\VaporCli\ConsoleVaporClient;
 use Symfony\Component\Console\Helper\Table;
-use PhpSchool\CliMenu\Builder\CliMenuBuilder;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -172,23 +171,7 @@ class Command extends SymfonyCommand
      */
     public function menu($title, $choices)
     {
-        $menu = (new CliMenuBuilder)
-                    ->setTitle($title)
-                    ->disableDefaultItems();
-
-        $menuSelection = null;
-
-        foreach ($choices as $index => $choice) {
-            $menu->addItem($choice, function ($menu) use ($index, &$menuSelection) {
-                $menuSelection = $index;
-
-                $menu->close();
-            });
-        }
-
-        $menu->build()->open();
-
-        return $menuSelection;
+        return Helpers::menu($title, $choices);
     }
 
     /**
