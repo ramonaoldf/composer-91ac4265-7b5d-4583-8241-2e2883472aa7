@@ -3,6 +3,7 @@
 namespace Laravel\VaporCli\BuildProcess;
 
 use Laravel\VaporCli\Helpers;
+use Laravel\VaporCli\Manifest;
 use Symfony\Component\Process\Process;
 
 class InjectHandlers
@@ -24,10 +25,37 @@ class InjectHandlers
 
         $stubPath = $this->appPath.'/vendor/laravel/vapor-core/stubs';
 
-        $this->files->copy($stubPath.'/runtime.php', $this->appPath.'/runtime.php');
+        if (Manifest::shouldSeparateVendor()) {
+            $this->files->copy($stubPath.'/runtime-with-vendor-download.php', $this->appPath.'/runtime.php');
+        } else {
+            $this->files->copy($stubPath.'/runtime.php', $this->appPath.'/runtime.php');
+        }
+
         $this->files->copy($stubPath.'/cliRuntime.php', $this->appPath.'/cliRuntime.php');
         $this->files->copy($stubPath.'/fpmRuntime.php', $this->appPath.'/fpmRuntime.php');
         $this->files->copy($stubPath.'/httpRuntime.php', $this->appPath.'/httpRuntime.php');
         $this->files->copy($stubPath.'/httpHandler.php', $this->appPath.'/httpHandler.php');
+
+        if (Manifest::shouldSeparateVendor()) {
+            file_put_contents(
+                $this->appPath.'/httpHandler.php',
+                $this->configureHttpHandler($this->appPath.'/httpHandler.php')
+            );
+        }
+    }
+
+    /**
+     * Configure the HTTP handler.
+     *
+     * @param  string  $file
+     * @return string
+     */
+    protected function configureHttpHandler($file)
+    {
+        return str_replace(
+            "require __DIR__.'/vendor/autoload.php';".PHP_EOL,
+            "require '/tmp/vendor/autoload.php';".PHP_EOL,
+            file_get_contents($file)
+        );
     }
 }
