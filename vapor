@@ -71,7 +71,7 @@ require __DIR__.'/services.php';
 /**
  * Start the console application.
  */
-$app = new Application('Laravel Vapor', '1.19.1');
+$app = new Application('Laravel Vapor', '1.19.2');
 
 // Authentication...
 $app->add(new Commands\LoginCommand);
@@ -126,6 +126,7 @@ $app->add(new Commands\DatabaseProxyCommand);
 $app->add(new Commands\DatabaseDeleteProxyCommand);
 $app->add(new Commands\DatabaseRestoreCommand);
 $app->add(new Commands\DatabaseMetricsCommand);
+$app->add(new Commands\DatabaseUpgradeCommand);
 $app->add(new Commands\DatabaseUsersCommand);
 $app->add(new Commands\DatabaseUserCommand);
 $app->add(new Commands\DatabaseDropUserCommand);
