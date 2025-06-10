@@ -17,8 +17,7 @@ class Deployment
     /**
      * Create a new model instance.
      *
-     * @param array $deployment
-     *
+     * @param  array  $deployment
      * @return void
      */
     public function __construct(array $deployment)
@@ -29,8 +28,7 @@ class Deployment
     /**
      * Get the names of the displayable steps.
      *
-     * @param array $displayedSteps
-     *
+     * @param  array  $displayedSteps
      * @return array
      */
     public function displayableSteps(array $displayedSteps = [])
@@ -49,8 +47,7 @@ class Deployment
     /**
      * Determine if the given deployment step should be displayed.
      *
-     * @param array $step
-     *
+     * @param  array  $step
      * @return bool
      */
     protected function stepShouldBeDisplayed(array $step)
@@ -62,8 +59,7 @@ class Deployment
     /**
      * Format the deployment step name into a displayable value.
      *
-     * @param string $name
-     *
+     * @param  string  $name
      * @return string
      */
     protected function formatDeploymentStepName($name)
@@ -153,8 +149,7 @@ class Deployment
     /**
      * Get an item from the deployment data.
      *
-     * @param string $key
-     *
+     * @param  string  $key
      * @return mixed
      */
     public function __get($key)

@@ -10,8 +10,7 @@ class GitIgnore
     /**
      * Add the paths to the Git "ignore" file.
      *
-     * @param array|string $path
-     *
+     * @param  array|string  $path
      * @return void
      */
     public static function add(array $paths)

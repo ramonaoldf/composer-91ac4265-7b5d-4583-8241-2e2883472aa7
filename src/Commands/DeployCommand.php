@@ -93,8 +93,7 @@ class DeployCommand extends Command
     /**
      * Build the project and create a new artifact for the deployment.
      *
-     * @param array $project
-     *
+     * @param  array  $project
      * @return array
      */
     protected function buildProject(array $project)
@@ -116,8 +115,7 @@ class DeployCommand extends Command
     /**
      * Get the proper asset domain for the given project.
      *
-     * @param array $project
-     *
+     * @param  array  $project
      * @return string
      */
     protected function assetDomain(array $project)
@@ -143,9 +141,8 @@ class DeployCommand extends Command
     /**
      * Upload the deployment artifact.
      *
-     * @param string $environment
-     * @param string $uuid
-     *
+     * @param  string  $environment
+     * @param  string  $uuid
      * @return array
      */
     protected function uploadArtifact($environment, $uuid)
@@ -196,8 +193,7 @@ class DeployCommand extends Command
     /**
      * Serve the artifact's assets at the given path.
      *
-     * @param array $artifact
-     *
+     * @param  array  $artifact
      * @return void
      */
     protected function serveAssets(array $artifact)
@@ -210,8 +206,7 @@ class DeployCommand extends Command
     /**
      * Setup a signal listener to handle deployment cancellations.
      *
-     * @param array $deployment
-     *
+     * @param  array  $deployment
      * @return array
      */
     protected function handleCancellations(array $deployment)
@@ -234,8 +229,7 @@ class DeployCommand extends Command
     /**
      * Attempt to cancel the given deployment.
      *
-     * @param array $deployment
-     *
+     * @param  array  $deployment
      * @return void
      */
     protected function cancelDeployment(array $deployment)

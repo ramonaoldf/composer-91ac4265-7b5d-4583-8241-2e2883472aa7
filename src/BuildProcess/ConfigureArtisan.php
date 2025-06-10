@@ -27,8 +27,7 @@ class ConfigureArtisan
     /**
      * Configure the Artisan executable.
      *
-     * @param string $file
-     *
+     * @param  string  $file
      * @return string
      */
     protected function configure($file)

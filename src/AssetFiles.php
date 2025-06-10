@@ -9,8 +9,7 @@ class AssetFiles
     /**
      * Get an asset file Finder instance.
      *
-     * @param string $path
-     *
+     * @param  string  $path
      * @return \Symfony\Component\Finder\Finder|array
      */
     public static function get($path)
@@ -38,8 +37,7 @@ class AssetFiles
     /**
      * Get the relative pathnames of all of the asset files in the path.
      *
-     * @param string $path
-     *
+     * @param  string  $path
      * @return array
      */
     public static function relativePaths($path)
