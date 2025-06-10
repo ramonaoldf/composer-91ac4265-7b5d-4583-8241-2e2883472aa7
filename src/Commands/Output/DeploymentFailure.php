@@ -12,8 +12,7 @@ class DeploymentFailure
     /**
      * Render the output.
      *
-     * @param \Laravel\VaporCli\Models\Deployment $deployment
-     *
+     * @param  \Laravel\VaporCli\Models\Deployment  $deployment
      * @return void
      */
     public function render(Deployment $deployment)

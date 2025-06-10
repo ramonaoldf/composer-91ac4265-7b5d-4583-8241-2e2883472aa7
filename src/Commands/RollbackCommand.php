@@ -62,8 +62,7 @@ class RollbackCommand extends Command
     /**
      * Get the available deployments for the environment.
      *
-     * @param string $environment
-     *
+     * @param  string  $environment
      * @return array
      */
     protected function availableDeployments($environment)
@@ -91,8 +90,7 @@ class RollbackCommand extends Command
     /**
      * Format the deployments into an array of choices.
      *
-     * @param array $deployments
-     *
+     * @param  array  $deployments
      * @return array
      */
     protected function formatDeployments(array $deployments)
@@ -105,8 +103,7 @@ class RollbackCommand extends Command
     /**
      * Get the displayable deployment name for the given deployment.
      *
-     * @param array $deployment
-     *
+     * @param  array  $deployment
      * @return string
      */
     protected function deploymentName(array $deployment)

@@ -61,8 +61,7 @@ class DatabaseTunnelCommand extends Command
     /**
      * Find a jump-box compatible with the database.
      *
-     * @param array $database
-     *
+     * @param  array  $database
      * @return array
      */
     protected function findCompatibleJumpBox(array $database)
@@ -85,8 +84,7 @@ class DatabaseTunnelCommand extends Command
     /**
      * Store the private SSH key for the jump-box.
      *
-     * @param array $jumpBox
-     *
+     * @param  array  $jumpBox
      * @return string
      */
     protected function storeJumpBoxKey(array $jumpBox)

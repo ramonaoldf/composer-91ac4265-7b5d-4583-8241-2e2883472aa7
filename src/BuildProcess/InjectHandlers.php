@@ -46,8 +46,7 @@ class InjectHandlers
     /**
      * Configure the HTTP handler.
      *
-     * @param string $file
-     *
+     * @param  string  $file
      * @return string
      */
     protected function configureHttpHandler($file)

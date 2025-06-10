@@ -119,8 +119,7 @@ class CacheCommand extends Command
     /**
      * Determine if the given network has a NAT gateway.
      *
-     * @param int $networkId
-     *
+     * @param  int  $networkId
      * @return bool
      */
     protected function networkHasNatGateway($networkId)
